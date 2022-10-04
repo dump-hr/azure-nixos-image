@@ -5,7 +5,6 @@
     "${modulesPath}/virtualisation/azure-image.nix"
   ];
 
-  services.openssh.passwordAuthentication = false;
   security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
