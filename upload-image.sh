@@ -2,13 +2,15 @@
 set -euo pipefail
 set -x
 
+NIXOS_VERSION="22-05"
+
 image_nix="${1:-"./image.nix"}"
 
 nix-build "${image_nix}" --out-link "azure"
 
-group="nixos-images"
+group="dump-cloud-snowflakes"
 location="germanywestcentral"
-img_name="nixos-image"
+img_name="nixos-image-ver-$NIXOS_VERSION"
 img_file="$(readlink -f ./azure/disk.vhd)"
 
 if ! az group show -n "${group}" &>/dev/null; then

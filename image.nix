@@ -1,5 +1,6 @@
 let
-  pkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-22.05.tar.gz") {};
+  nixos_version = "22.05";
+  pkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-${nixos_version}.tar.gz") {};
   machine = import (pkgs.path + "/nixos/lib/eval-config.nix") {
     system = "x86_64-linux";
     modules = [
